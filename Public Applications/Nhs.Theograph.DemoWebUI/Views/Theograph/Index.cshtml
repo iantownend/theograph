@@ -1,9 +1,10 @@
-﻿@using Nhs.Theograph.Core;
+﻿@using Nhs.Theograph.Core.Interfaces;
+@using Nhs.Theograph.Core;
 @model PatientEpsiodes
 @{
-  ViewBag.Title = "Patient Details: " + Model.Patient.GetFullName() + " (" + Model.Patient.NhsNumber + ")";
+  ViewBag.Title = "Patient Details: " + Model.Patient.PatientDetails.GetFullName() + " (" + Model.Patient.NhsNumber.Value + ")";
 }
-<h3>Patient Details - @Model.Patient.GetFullName()</h3>
+<h3>Patient Details - @Model.Patient.PatientDetails.GetFullName()</h3>
 <div class="theograph-graph">
   <div id="theographChart" style="width: 80%; height: 300px;">
   </div>

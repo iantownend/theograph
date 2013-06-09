@@ -4,8 +4,9 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Nhs.Theograph.Core.Interfaces;
 
-    public class PersonalDetails
+    public class PersonalDetails : IPersonName
     {
         public string Forename { get; set; }
         public string Surname { get; set; }

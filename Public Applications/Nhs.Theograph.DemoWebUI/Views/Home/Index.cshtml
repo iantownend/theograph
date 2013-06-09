@@ -1,4 +1,5 @@
-﻿@using Nhs.Theograph.DemoWebUI.Models;
+﻿@using Nhs.Theograph.Core.Interfaces;
+@using Nhs.Theograph.DemoWebUI.Models;
 @model IList<PatientViewModel>
 @{
   ViewBag.Title = "Patient List";
@@ -7,7 +8,7 @@
 @{ foreach (var patient in Model)
    {
   <div class="well">
-    @Html.ActionLink(patient.Patient.GetFullName(), "index", "theograph", routeValues: new { nhsNumber = patient.NhsNumberValue }, htmlAttributes: new { })
+    @Html.ActionLink(patient.Patient.PatientDetails.GetFullName(), "index", "theograph", routeValues: new { nhsNumber = patient.NhsNumberValue }, htmlAttributes: new { })
     <div class="row-fluid">
       <span class="span4">NHS Number: @patient.NhsNumberValue</span>
     </div>

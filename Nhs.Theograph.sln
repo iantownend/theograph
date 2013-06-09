@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Core", "BusinessLogic\Nhs.Theograph.Core\Nhs.Theograph.Core.csproj", "{36AC7EB3-8113-402B-835E-91B42FD30615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Episodes.Care", "BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Episodes.Care.csproj", "{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{67443E83-6E28-4681-B812-2B02B9CF0DE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7EDC8980-E913-4461-B077-C76F85CE0BFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public Applications", "Public Applications", "{EE64C411-DF86-40BA-8F29-624B68E364BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Infrastructure", "Infrastructure\Nhs.Theograph.Infrastructure\Nhs.Theograph.Infrastructure.csproj", "{831B9281-7A36-454C-9B46-AC4C0B27AA88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.DemoWebUI", "Public Applications\Nhs.Theograph.DemoWebUI\Nhs.Theograph.DemoWebUI.csproj", "{E251DB58-CC40-49B5-A189-689A03A4359E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36AC7EB3-8113-402B-835E-91B42FD30615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AC7EB3-8113-402B-835E-91B42FD30615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AC7EB3-8113-402B-835E-91B42FD30615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AC7EB3-8113-402B-835E-91B42FD30615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831B9281-7A36-454C-9B46-AC4C0B27AA88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831B9281-7A36-454C-9B46-AC4C0B27AA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831B9281-7A36-454C-9B46-AC4C0B27AA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831B9281-7A36-454C-9B46-AC4C0B27AA88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E251DB58-CC40-49B5-A189-689A03A4359E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E251DB58-CC40-49B5-A189-689A03A4359E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E251DB58-CC40-49B5-A189-689A03A4359E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E251DB58-CC40-49B5-A189-689A03A4359E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C69CE6C3-AEBF-40FE-8355-44D34B3CA118} = {67443E83-6E28-4681-B812-2B02B9CF0DE3}
+		{36AC7EB3-8113-402B-835E-91B42FD30615} = {67443E83-6E28-4681-B812-2B02B9CF0DE3}
+		{831B9281-7A36-454C-9B46-AC4C0B27AA88} = {7EDC8980-E913-4461-B077-C76F85CE0BFD}
+		{E251DB58-CC40-49B5-A189-689A03A4359E} = {EE64C411-DF86-40BA-8F29-624B68E364BC}
+	EndGlobalSection
+EndGlobal

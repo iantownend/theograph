@@ -1,0 +1,15 @@
+C:\0Personal\Nhs.Theograph.Core\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph.Core\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph.Core\Nhs.Theograph.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\0Personal\Nhs.Theograph.Core\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph.Core\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Core\bin\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Core\obj\Debug\Nhs.Theograph.Core.pdb

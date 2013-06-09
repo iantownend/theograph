@@ -1,0 +1,90 @@
+﻿@using Nhs.Theograph.Core;
+@model PatientEpsiodes
+@{
+  ViewBag.Title = "Patient List";
+}
+<h3>Patient Details - @Model.Patient.GetFullName()</h3>
+<div class="theograph-graph">
+  <div id="theographChart">
+  </div>
+</div>
+<table id="theographTable" class="highchart table table-hover table-condensed hidden-js-on"
+  data-graph-container="#theographChart" data-graph-type="line">
+  <thead>
+    <tr>
+      <th>Episode Type </th>
+      <th>Start Date </th>
+      <th>Start Time </th>
+      <th>End Date </th>
+      <th>End Time </th>
+    </tr>
+  </thead>
+  <tbody>
+    @{ foreach (var episode in Model.Episodes)
+       {
+      <tr>
+        <td>
+          @episode.EpisodeType.Value
+        </td>
+        <td>
+          @episode.StartTime.ToString("dd MMM yyyy")
+        </td>
+        <td>
+          @episode.StartTime.ToString("HH:mm:ss")
+        </td>
+        <td>
+          @Html.Raw(episode.EndTime.HasValue ? episode.EndTime.Value.ToString("dd MMM yyyy") : "-")
+        </td>
+        <td>
+          @Html.Raw(episode.EndTime.HasValue ? episode.EndTime.Value.ToString("HH:mm:ss") : "-")
+        </td>
+      </tr>
+       }
+    }
+  </tbody>
+</table>
+<script type="text/javascript">
+  var theographChartHelper = function () {
+    return {
+      buildChart: function (tableId, forReport) {
+        forReport = forReport || false;
+        $(tableId)
+            .bind('highchartTable.beforeRender', function (event, highChartConfig) {
+
+              highChartConfig.colors = ['#015CAD', '#ED1951'];
+
+              if (forReport) {
+                highChartConfig.plotOptions = {
+                  column: {
+                    stacking: 'normal',
+                    animation: false,
+                    shadow: false
+                  }
+                };
+              }
+              else {
+                highChartConfig.plotOptions = {
+                  column: {
+                    stacking: 'normal'
+                  }
+                };
+              }
+
+              highChartConfig.yAxis = {
+                allowDecimals: false,
+                title: {
+                  text: "Views Per Month"
+                }
+              };
+            })
+            .highchartTable();
+      }
+    };
+
+  } ();
+
+  $(function () {
+    "use strict";
+    theographChartHelper.buildChart('#theographTable');
+  });
+</script>

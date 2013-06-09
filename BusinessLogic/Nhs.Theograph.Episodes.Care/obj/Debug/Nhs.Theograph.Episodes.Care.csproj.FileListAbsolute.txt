@@ -1,0 +1,14 @@
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Episode.AEAttendance.dll
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Episode.AEAttendance.pdb
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\ResolveAssemblyReference.cache
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\Nhs.Theograph.Episode.AEAttendance.dll
+C:\0Personal\Nhs.Theograph.Core\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\Nhs.Theograph.Episode.AEAttendance.pdb
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Episode.AEAttendance.dll
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Episode.AEAttendance.pdb
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Core.dll
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\bin\Debug\Nhs.Theograph.Core.pdb
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\ResolveAssemblyReference.cache
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\Nhs.Theograph.Episode.AEAttendance.dll
+C:\0Personal\Nhs.Theograph\BusinessLogic\Nhs.Theograph.Episodes.Care\obj\Debug\Nhs.Theograph.Episode.AEAttendance.pdb

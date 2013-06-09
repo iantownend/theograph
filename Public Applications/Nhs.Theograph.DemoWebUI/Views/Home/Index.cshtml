@@ -1,0 +1,18 @@
+﻿@using Nhs.Theograph.DemoWebUI.Models;
+@model IList<PatientViewModel>
+@{
+  ViewBag.Title = "Patient List";
+}
+<h3>Patient List</h3>
+<ul>
+  @{ foreach (var patient in Model)
+     {
+    <li class="well">
+      @Html.ActionLink(patient.Patient.GetFullName(), "index", "theograph", routeValues: new { nhsNumber = patient.NhsNumberValue }, htmlAttributes: new { })
+      <div class="row-fluid">
+        <span class="span4">NHS Number: @patient.NhsNumberValue</span>
+      </div>
+    </li>
+     }
+  }
+</ul>

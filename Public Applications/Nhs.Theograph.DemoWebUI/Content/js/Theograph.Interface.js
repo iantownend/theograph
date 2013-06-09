@@ -32,13 +32,10 @@ Theograph.Interface = (function () {
             jqChartLoader.append('<div class="graphLoader"><img src="/content/images/radar/' + icon + '" /><p>' + text + '</p></div>');
         },
         drawChart: function dC(callback) {
-            console.log('drawChart...');
             $.get('/Theograph/getData?nhsNumber=' + getParameterByName("nhsNumber"), null, function dCrA(chartOptionsProxy) {
                 if (chartOptionsProxy === null) {
                     return;
                 }
-
-                chartOptionsProxy
 
                 var categories = null, series = null, colors = null, axes = null, tooltip = null, dataLabels = null, legend = null, hdSummary = null, ftSummary = null, events = null, chartData, template, nav = { count: 0, startAt: 0, maxItems: 10 }, customData = null;
                 if (chartOptionsProxy.hasOwnProperty('categories') && Array.isArray(chartOptionsProxy.categories)) {

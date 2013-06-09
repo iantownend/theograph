@@ -340,7 +340,11 @@ Theograph.Chart = function theoChart(chartContainer, chartOptions) {
                 enabled: false
             }
         },
-        tooltip: { formatter: tooltipFormatter },
+        tooltip: { 
+            formatter: function() {
+                return '<b>' + new Date(this.point.x).toString() + '</b><br/>' + this.point.series.name + (this.point.org !== undefined ? ' at ' + this.point.org : '');
+            } 
+        },
         series: chartOptions.getSeriesData()
     });
 };

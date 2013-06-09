@@ -22,6 +22,10 @@ namespace Nhs.Theograph.DemoWebUI
                         "~/Scripts/highcharts.js",
                         "~/Scripts/jquery.highchartTable.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/theograph").Include(
+                        "~/Content/js/Theograph.js",
+                        "~/Content/js/Theograph.Interface.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

@@ -58,9 +58,9 @@
       <Project>{36AC7EB3-8113-402B-835E-91B42FD30615}</Project>
       <Name>Nhs.Theograph.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Episodes.Care.csproj">
+    <ProjectReference Include="..\..\BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Care.csproj">
       <Project>{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}</Project>
-      <Name>Nhs.Theograph.Episodes.Care</Name>
+      <Name>Nhs.Theograph.Care</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

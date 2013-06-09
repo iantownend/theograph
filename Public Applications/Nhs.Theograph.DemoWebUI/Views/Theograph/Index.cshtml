@@ -5,7 +5,7 @@
 }
 <h3>Patient Details - @Model.Patient.GetFullName()</h3>
 <div class="theograph-graph">
-  <div id="theographChart">
+  <div id="theographChart" style="width: 80%; height: 300px;">
   </div>
 </div>
 <table id="theographTable" class="highchart table table-hover table-condensed hidden-js-on"
@@ -83,8 +83,9 @@
 
   } ();
 
-  $(function () {
+  $(document).ready(function () {
     "use strict";
-    theographChartHelper.buildChart('#theographTable');
+
+    Theograph.Interface.loadChart();
   });
 </script>

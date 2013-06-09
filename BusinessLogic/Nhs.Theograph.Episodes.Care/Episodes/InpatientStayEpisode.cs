@@ -1,4 +1,4 @@
-﻿namespace Nhs.Theograph.Episodes.Care
+﻿namespace Nhs.Theograph.Care.Episodes
 {
     using System;
     using System.Collections.Generic;
@@ -6,11 +6,11 @@
     using System.Text;
     using Nhs.Theograph.Core.Episode;
 
-    public class AEAttendanceEpisode : EpisodeDetailsBase
+    public class InpatientStayEpisode : EpisodeDetailsBase
     {
         public override EpisodeType EpisodeType
         {
-            get { return new EpisodeType { Value = "A & E Attendance" }; }
+            get { return new EpisodeType { Value = "Inpatient Stay" }; }
             set { throw new NotImplementedException(); }
         }
     }

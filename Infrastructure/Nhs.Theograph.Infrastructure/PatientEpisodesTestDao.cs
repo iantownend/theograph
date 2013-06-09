@@ -62,8 +62,8 @@ namespace Nhs.Theograph.Infrastructure
             PatientEpsiodes value = new PatientEpsiodes(targetPatient);
 
             value.Episodes.Add(new Episodes.Care.AEAttendanceEpisode {
-                StartTime = new DateTime(2013, 1, 9, 10, 0, 0),
-                EndTime = new DateTime(2013, 1, 9, 11, 0, 0)
+                StartTime = new DateTime(2012, 11, 9, 10, 0, 0),
+                EndTime = new DateTime(2012, 11, 9, 11, 0, 0)
             });
 
             value.Episodes.Add(new Episodes.Care.InpatientStayEpisode
@@ -80,8 +80,8 @@ namespace Nhs.Theograph.Infrastructure
 
             value.Episodes.Add(new Episodes.Care.OutpatientAppointmentEpisode
             {
-                StartTime = new DateTime(2013, 5, 11, 10, 0, 0),
-                EndTime = new DateTime(2013, 5, 11, 11, 0, 0)
+                StartTime = new DateTime(2013, 3, 11, 10, 0, 0),
+                EndTime = new DateTime(2013, 3, 11, 11, 0, 0)
             });
 
             return value;

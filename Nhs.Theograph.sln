@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Core", "BusinessLogic\Nhs.Theograph.Core\Nhs.Theograph.Core.csproj", "{36AC7EB3-8113-402B-835E-91B42FD30615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Episodes.Care", "BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Episodes.Care.csproj", "{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhs.Theograph.Care", "BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Care.csproj", "{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{67443E83-6E28-4681-B812-2B02B9CF0DE3}"
 EndProject

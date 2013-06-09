@@ -1,6 +1,4 @@
-﻿
-
-namespace Nhs.Theograph.DemoWebUI.Controllers
+﻿namespace Nhs.Theograph.DemoWebUI.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -9,11 +7,18 @@ namespace Nhs.Theograph.DemoWebUI.Controllers
     using System.Web.Mvc;
     using Nhs.Theograph.Core;
     using Nhs.Theograph.Core.Services;
+    using Nhs.Theograph.DemoWebUI.Models;
+    using Nhs.Theograph.DemoWebUI.Helpers;
+    using Newtonsoft.Json;
 
     public class TheographController : Controller
     {
         private PatientEpisodeService patientEpisodeService;
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="TheographController"/> class.
+        /// </summary>
+        /// <param name="patientEpisodeService">The patient episode service.</param>
         public TheographController(PatientEpisodeService patientEpisodeService)
         {
             this.patientEpisodeService = patientEpisodeService;
@@ -21,6 +26,37 @@ namespace Nhs.Theograph.DemoWebUI.Controllers
 
         [HttpGet]
         public ActionResult Index(string nhsNumber)
+        {
+            NhsNumber value = this.ValidateNhsNumber(nhsNumber);
+
+            return this.View(this.patientEpisodeService.GetPatientEpisodesByNhsNumber(value));
+        }
+
+        [HttpGet]
+        [ActionName("getData")]
+        public ActionResult GetData(string nhsNumber)
+        {
+            NhsNumber value = this.ValidateNhsNumber(nhsNumber);
+
+            var result = new JsonNetResult
+            {
+                Data = new TheographChartViewModel(this.patientEpisodeService.GetPatientEpisodesByNhsNumber(value)),
+#if DEBUG
+                Formatting = Formatting.Indented
+#else
+                Formatting = Formatting.None
+#endif
+            };
+
+            return result;
+        }
+
+        /// <summary>
+        /// Validates the specified NHS number value.
+        /// </summary>
+        /// <param name="nhsNumber">The NHS number.</param>
+        /// <returns></returns>
+        private NhsNumber ValidateNhsNumber(string nhsNumber)
         {
             NhsNumber value = null;
 
@@ -33,7 +69,7 @@ namespace Nhs.Theograph.DemoWebUI.Controllers
                 this.RedirectToAction("Index", "Home");
             }
 
-            return this.View(this.patientEpisodeService.GetPatientEpisodesByNhsNumber(value));
+            return value;
         }
     }
 }

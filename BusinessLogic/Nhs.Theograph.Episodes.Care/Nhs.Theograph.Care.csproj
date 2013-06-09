@@ -8,8 +8,8 @@
     <ProjectGuid>{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nhs.Theograph.Episode.AEAttendance</RootNamespace>
-    <AssemblyName>Nhs.Theograph.Episode.AEAttendance</AssemblyName>
+    <RootNamespace>Nhs.Theograph.Care</RootNamespace>
+    <AssemblyName>Nhs.Theograph.Care</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AEAttendanceEpisode.cs" />
-    <Compile Include="OutpatientAppointmentEpisode.cs" />
-    <Compile Include="InpatientStayEpisode.cs" />
+    <Compile Include="Episodes\AEAttendanceEpisode.cs" />
+    <Compile Include="Episodes\OutpatientAppointmentEpisode.cs" />
+    <Compile Include="Episodes\InpatientStayEpisode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

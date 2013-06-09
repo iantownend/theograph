@@ -167,11 +167,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Infrastructure\ControllerInstaller.cs" />
     <Compile Include="Infrastructure\DaoInstaller.cs" />
     <Compile Include="Infrastructure\ServiceInstaller.cs" />
     <Compile Include="Infrastructure\WebUIContainerFactory.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
+    <Compile Include="Models\TheographChartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +184,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\js\Theograph.Interface.js" />
+    <Content Include="Content\js\Theograph.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -314,9 +319,9 @@
       <Project>{36AC7EB3-8113-402B-835E-91B42FD30615}</Project>
       <Name>Nhs.Theograph.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Episodes.Care.csproj">
+    <ProjectReference Include="..\..\BusinessLogic\Nhs.Theograph.Episodes.Care\Nhs.Theograph.Care.csproj">
       <Project>{C69CE6C3-AEBF-40FE-8355-44D34B3CA118}</Project>
-      <Name>Nhs.Theograph.Episodes.Care</Name>
+      <Name>Nhs.Theograph.Care</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Nhs.Theograph.Infrastructure\Nhs.Theograph.Infrastructure.csproj">
       <Project>{831B9281-7A36-454C-9B46-AC4C0B27AA88}</Project>

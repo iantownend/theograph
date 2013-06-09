@@ -114,7 +114,6 @@ C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theog
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Microsoft.Web.Infrastructure.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Core.dll
-C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Episode.AEAttendance.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Infrastructure.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\System.Net.Http.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\System.Net.Http.Formatting.dll
@@ -130,7 +129,6 @@ C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\System.We
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\WebMatrix.Data.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\WebMatrix.WebData.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Core.pdb
-C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Episode.AEAttendance.pdb
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Infrastructure.pdb
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Microsoft.Web.Infrastructure.xml
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\System.Net.Http.xml
@@ -150,3 +148,5 @@ C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\WebMatrix
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\obj\Debug\ResolveAssemblyReference.cache
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\obj\Debug\Nhs.Theograph.DemoWebUI.dll
 C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\obj\Debug\Nhs.Theograph.DemoWebUI.pdb
+C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Care.dll
+C:\0Personal\theograph\Public Applications\Nhs.Theograph.DemoWebUI\bin\Nhs.Theograph.Care.pdb

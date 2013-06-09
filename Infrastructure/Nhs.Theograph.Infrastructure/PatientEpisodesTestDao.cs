@@ -9,7 +9,7 @@ namespace Nhs.Theograph.Infrastructure
     using System.Text;
     using Nhs.Theograph.Core.ReadModel;
     using Nhs.Theograph.Core;
-    using Nhs.Theograph.Episodes.Care;
+    using Nhs.Theograph.Care.Episodes;
 
     /// <summary>
     /// TODO: Update summary.
@@ -61,24 +61,24 @@ namespace Nhs.Theograph.Infrastructure
 
             PatientEpsiodes value = new PatientEpsiodes(targetPatient);
 
-            value.Episodes.Add(new Episodes.Care.AEAttendanceEpisode {
+            value.Episodes.Add(new AEAttendanceEpisode {
                 StartTime = new DateTime(2012, 11, 9, 10, 0, 0),
                 EndTime = new DateTime(2012, 11, 9, 11, 0, 0)
             });
 
-            value.Episodes.Add(new Episodes.Care.InpatientStayEpisode
+            value.Episodes.Add(new InpatientStayEpisode
             {
                 StartTime = new DateTime(2013, 2, 11, 10, 0, 0),
                 EndTime = new DateTime(2013, 2, 14, 11, 0, 0)
             });
 
-            value.Episodes.Add(new Episodes.Care.OutpatientAppointmentEpisode
+            value.Episodes.Add(new OutpatientAppointmentEpisode
             {
                 StartTime = new DateTime(2013, 4, 11, 10, 0, 0),
                 EndTime = new DateTime(2013, 4, 11, 11, 0, 0)
             });
 
-            value.Episodes.Add(new Episodes.Care.OutpatientAppointmentEpisode
+            value.Episodes.Add(new OutpatientAppointmentEpisode
             {
                 StartTime = new DateTime(2013, 3, 11, 10, 0, 0),
                 EndTime = new DateTime(2013, 3, 11, 11, 0, 0)

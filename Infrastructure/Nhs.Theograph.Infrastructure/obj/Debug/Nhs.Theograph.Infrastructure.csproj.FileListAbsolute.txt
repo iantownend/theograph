@@ -25,9 +25,9 @@ C:\0Personal\Nhs.Theograph\Infrastructure\Nhs.Theograph.Infrastructure\obj\Debug
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Infrastructure.dll
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Infrastructure.pdb
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Core.dll
-C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Episode.AEAttendance.dll
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Core.pdb
-C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Episode.AEAttendance.pdb
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\obj\Debug\ResolveAssemblyReference.cache
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\obj\Debug\Nhs.Theograph.Infrastructure.dll
 C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\obj\Debug\Nhs.Theograph.Infrastructure.pdb
+C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Care.dll
+C:\0Personal\theograph\Infrastructure\Nhs.Theograph.Infrastructure\bin\Debug\Nhs.Theograph.Care.pdb

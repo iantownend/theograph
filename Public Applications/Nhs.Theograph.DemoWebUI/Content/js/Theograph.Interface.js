@@ -38,6 +38,8 @@ Theograph.Interface = (function () {
                     return;
                 }
 
+                chartOptionsProxy
+
                 var categories = null, series = null, colors = null, axes = null, tooltip = null, dataLabels = null, legend = null, hdSummary = null, ftSummary = null, events = null, chartData, template, nav = { count: 0, startAt: 0, maxItems: 10 }, customData = null;
                 if (chartOptionsProxy.hasOwnProperty('categories') && Array.isArray(chartOptionsProxy.categories)) {
                     categories = chartOptionsProxy.categories;

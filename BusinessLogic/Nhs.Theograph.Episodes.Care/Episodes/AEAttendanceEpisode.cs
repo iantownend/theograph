@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using Nhs.Theograph.Core.Episode;
+using Nhs.Theograph.Care.ClinicalEvents;
 
     public class AEAttendanceEpisode : EpisodeDetailsBase
     {
@@ -13,5 +14,8 @@
             get { return new EpisodeType { Value = "A & E Attendance" }; }
             set { throw new NotImplementedException(); }
         }
+        public IList<DiagnosisEvent> Diagnosis { get; set; }
+        public IList<TreatmentEvent> Treatment {get;set;}
+        public IList<InvestigationEvent> Investigation { get; set; }
     }
 }

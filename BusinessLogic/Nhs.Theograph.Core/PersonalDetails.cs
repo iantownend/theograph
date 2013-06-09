@@ -8,11 +8,8 @@
     public class PersonalDetails
     {
         public string Forename { get; set; }
-
         public string Surname { get; set; }
-
         public DateTime DateOfBirth { get; set; }
-
         public Gender Gender { get; set; }
     }
 }

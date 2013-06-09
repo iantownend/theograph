@@ -34,11 +34,24 @@
                 {
                     var dataPoint = new TheographChartSeriesData
                     {
-                        EpisodeStartTimestamp = orderedEpsiode.StartTime.ToUnixTime(),
+                        // * 1000 to conform with the Highcharts way of handling dates
+                        EpisodeStartTimestamp = orderedEpsiode.StartTime.ToUnixTime()* 1000,
                         Y = yvalue
                     };
 
                     series.Data.Add(dataPoint);
+
+                    if (orderedEpsiode.EndTime.HasValue)
+                    {
+                        dataPoint = new TheographChartSeriesData
+                        {
+                            // * 1000 to conform with the Highcharts way of handling dates
+                            EpisodeStartTimestamp = orderedEpsiode.EndTime.Value.ToUnixTime() * 1000,
+                            Y = yvalue
+                        };
+                        series.Data.Add(dataPoint);
+                    }
+
 
                     // add null-value spacer to disconnect the points
                     var dataNullPoint = new TheographChartSeriesData

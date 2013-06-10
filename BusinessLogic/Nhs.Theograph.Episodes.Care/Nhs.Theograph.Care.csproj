@@ -44,6 +44,7 @@
     <Compile Include="ClinicalEvents\TreatmentEvent.cs" />
     <Compile Include="ClinicalEvents\DiagnosisEvent.cs" />
     <Compile Include="Episodes\AEAttendanceEpisode.cs" />
+    <Compile Include="Episodes\GPEpisode.cs" />
     <Compile Include="Episodes\OutpatientAppointmentEpisode.cs" />
     <Compile Include="Episodes\InpatientStayEpisode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,9 +4,9 @@
 @{
   ViewBag.Title = "Patient Details: " + Model.Patient.PatientDetails.GetFullName() + " (" + Model.Patient.NhsNumber.Value + ")";
 }
-<h3>Patient Details - @Model.Patient.PatientDetails.GetFullName()</h3>
-<div class="theograph-graph">
-  <div id="theographChart" style="width: 80%; height: 300px;">
+<h3 class="span12 pagination-centered">Theograph for @Model.Patient.PatientDetails.GetFullName()</h3>
+<div class="theograph-graph" style="width: 100%; height: 300px;">
+  <div id="theographChart" style="width: 100%; height: 250px;">
   </div>
 </div>
 <table id="theographTable" class="highchart table table-hover table-condensed hidden-js-on"

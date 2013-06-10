@@ -61,9 +61,75 @@ namespace Nhs.Theograph.Infrastructure
 
             PatientEpsiodes value = new PatientEpsiodes(targetPatient);
 
-            value.Episodes.Add(new AEAttendanceEpisode {
+           
+
+            value.Episodes.Add(new AEAttendanceEpisode
+            {
+                StartTime = new DateTime(2012, 08, 1, 10, 0, 0),
+                EndTime = new DateTime(2012, 08, 1, 14, 0, 0)
+            });
+
+            value.Episodes.Add(new InpatientStayEpisode
+            {
+                StartTime = new DateTime(2012, 8, 1, 10, 0, 0),
+                EndTime = new DateTime(2012, 8, 8, 11, 0, 0)
+            });
+
+            value.Episodes.Add(new OutpatientAppointmentEpisode
+            {
+                StartTime = new DateTime(2012, 8, 15, 08, 0, 0),
+                EndTime = new DateTime(2012, 8, 15, 09, 0, 0)
+            });
+
+            value.Episodes.Add(new OutpatientAppointmentEpisode
+            {
+                StartTime = new DateTime(2012, 8, 22, 10, 0, 0),
+                EndTime = new DateTime(2012, 8, 22, 11, 0, 0)
+            });
+
+            value.Episodes.Add(new InpatientStayEpisode
+            {
+                StartTime = new DateTime(2012, 9, 1, 13, 30, 0),
+                EndTime = new DateTime(2012, 9, 9, 15, 0, 0)
+            });
+
+            value.Episodes.Add(new OutpatientAppointmentEpisode
+            {
+                StartTime = new DateTime(2012, 9, 18, 10, 0, 0),
+                EndTime = new DateTime(2012, 9, 18, 13, 0, 0)
+            });
+
+            value.Episodes.Add(new AEAttendanceEpisode
+            {
                 StartTime = new DateTime(2012, 11, 9, 10, 0, 0),
                 EndTime = new DateTime(2012, 11, 9, 11, 0, 0)
+            });
+
+
+
+
+            value.Episodes.Add(new AEAttendanceEpisode
+            {
+                StartTime = new DateTime(2012, 12, 1, 11, 0, 0),
+                EndTime = new DateTime(2012, 12, 1, 19, 0, 0)
+            });
+
+            value.Episodes.Add(new InpatientStayEpisode
+            {
+                StartTime = new DateTime(2012, 12, 1, 19, 01, 0),
+                EndTime = new DateTime(2012, 12, 15, 11, 0, 0)
+            });
+
+            value.Episodes.Add(new OutpatientAppointmentEpisode
+            {
+                StartTime = new DateTime(2012, 12, 17, 15, 15, 0),
+                EndTime = new DateTime(2012, 12, 17, 16, 0, 0)
+            });
+
+            value.Episodes.Add(new OutpatientAppointmentEpisode
+            {
+                StartTime = new DateTime(2012, 12, 19, 10, 00, 0),
+                EndTime = new DateTime(2012, 12, 19, 11, 0, 0)
             });
 
             value.Episodes.Add(new InpatientStayEpisode
@@ -74,14 +140,14 @@ namespace Nhs.Theograph.Infrastructure
 
             value.Episodes.Add(new OutpatientAppointmentEpisode
             {
-                StartTime = new DateTime(2013, 4, 11, 10, 0, 0),
-                EndTime = new DateTime(2013, 4, 11, 11, 0, 0)
+                StartTime = new DateTime(2013, 3, 11, 10, 0, 0),
+                EndTime = new DateTime(2013, 3, 11, 11, 0, 0)
             });
 
             value.Episodes.Add(new OutpatientAppointmentEpisode
             {
-                StartTime = new DateTime(2013, 3, 11, 10, 0, 0),
-                EndTime = new DateTime(2013, 3, 11, 11, 0, 0)
+                StartTime = new DateTime(2013, 4, 11, 10, 0, 0),
+                EndTime = new DateTime(2013, 4, 11, 11, 0, 0)
             });
 
             return value;

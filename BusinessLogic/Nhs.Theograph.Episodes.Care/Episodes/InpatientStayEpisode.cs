@@ -6,6 +6,7 @@
     using System.Text;
     using Nhs.Theograph.Core.Episode;
     using Nhs.Theograph.Care.ClinicalEvents;
+    using Nhs.Theograph.Core;
 
     public class InpatientStayEpisode : EpisodeDetailsBase
     {
@@ -15,6 +16,7 @@
             set { throw new NotImplementedException(); }
         }
 
+        public OrganisationType Organisation { get; set; }
         public IList<DiagnosisEvent> Diagnosis { get; set; }
         public IList<TreatmentEvent> Treatment { get; set; }
         public IList<InvestigationEvent> Investigation { get; set; }

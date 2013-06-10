@@ -6,6 +6,7 @@
     using System.Text;
     using Nhs.Theograph.Core.Episode;
 using Nhs.Theograph.Care.ClinicalEvents;
+using Nhs.Theograph.Core;
 
     public class AEAttendanceEpisode : EpisodeDetailsBase
     {
@@ -14,6 +15,7 @@ using Nhs.Theograph.Care.ClinicalEvents;
             get { return new EpisodeType { Value = "A & E Attendance" }; }
             set { throw new NotImplementedException(); }
         }
+        public OrganisationType Organisation { get; set; }
         public IList<DiagnosisEvent> Diagnosis { get; set; }
         public IList<TreatmentEvent> Treatment {get;set;}
         public IList<InvestigationEvent> Investigation { get; set; }

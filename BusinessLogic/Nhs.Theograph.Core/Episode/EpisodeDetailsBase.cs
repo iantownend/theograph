@@ -26,7 +26,7 @@
         /// <summary>
         /// Gets or sets the unique identifier of the organisation.
         /// </summary>
-        public string OrganisationId { get; set; }
+        public OrganisationType OrganisationId { get; set; }
 
         /// <summary>
         /// Gets or sets the start date and time of this episode.

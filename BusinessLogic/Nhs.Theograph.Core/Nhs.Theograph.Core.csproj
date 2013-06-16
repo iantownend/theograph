@@ -40,6 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodedValueType.cs" />
+    <Compile Include="Episode\EventId.cs" />
+    <Compile Include="Episode\IResultsEvent.cs" />
+    <Compile Include="IResult.cs" />
+    <Compile Include="PatientEpisode.cs" />
+    <Compile Include="Episode\PersonRole.cs" />
+    <Compile Include="PhysicalQuantity.cs" />
+    <Compile Include="PhysicalQuantityUnit.cs" />
     <Compile Include="Site.cs" />
     <Compile Include="Episode\EpisodeDetailsBase.cs" />
     <Compile Include="Episode\Staff.cs" />
@@ -52,13 +60,13 @@
     <Compile Include="Patient.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="NhsNumber.cs" />
-    <Compile Include="PatientEpsiodes.cs" />
+    <Compile Include="PatientEpisodes.cs" />
     <Compile Include="PersonalDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PatientEpisodeService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReadModel\IPatientEpisodeDao.cs" />
+    <Compile Include="ReadModel\ITheographDao.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

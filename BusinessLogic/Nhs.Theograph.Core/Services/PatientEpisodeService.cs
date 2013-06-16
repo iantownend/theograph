@@ -11,15 +11,16 @@ namespace Nhs.Theograph.Core.Services
     using System.Linq;
     using System.Text;
     using Nhs.Theograph.Core.ReadModel;
+    using Nhs.Theograph.Core.Episode;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class PatientEpisodeService
     {
-        private IPatientEpisodeDao patientEpisodeDao;
+        private ITheographDao patientEpisodeDao;
 
-        public PatientEpisodeService(IPatientEpisodeDao patientEpisodeDao)
+        public PatientEpisodeService(ITheographDao patientEpisodeDao)
         {
             this.patientEpisodeDao = patientEpisodeDao;
         }
@@ -29,9 +30,21 @@ namespace Nhs.Theograph.Core.Services
             return this.patientEpisodeDao.GetPatients();
         }
 
-        public PatientEpsiodes GetPatientEpisodesByNhsNumber(NhsNumber nhsNumber)
+        public PatientEpisodes GetPatientEpisodesByNhsNumber(NhsNumber nhsNumber)
         {
             return this.patientEpisodeDao.GetPatientEpisodesByNhsNumber(nhsNumber);
+        }
+
+        public PatientEpisode GetPatientEpisodeEvents(NhsNumber nhsNumber, EpisodeId episodeId)
+        {
+            var patientEpisodes = this.patientEpisodeDao.GetPatientEpisodesByNhsNumber(nhsNumber);
+
+            if (patientEpisodes.Episodes.SingleOrDefault(x => x.EpisodeId.Equals(episodeId)) != null)
+            {
+                return this.patientEpisodeDao.GetPatientEpisodeEvents(nhsNumber, episodeId);
+            }
+
+            throw new ArgumentException("Mismatch between NHS Number and Episode ID.");
         }
     }
 }

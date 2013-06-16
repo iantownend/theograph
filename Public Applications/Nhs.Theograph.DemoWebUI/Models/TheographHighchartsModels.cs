@@ -4,13 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-    using System.Web.Mvc;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-
-    using Nhs.Theograph.Core;
-    using Nhs.Theograph.DemoWebUI.Helpers;
-    using System.Text;
 
     public class TheographChartViewModel
     {
@@ -18,108 +12,6 @@
         {
             this.Series = new List<TheographChartSeries>();
             this.Axes = new Dictionary<string, TheographAxisData>();
-        }
-
-        public TheographChartViewModel(PatientEpsiodes patientEpisodes)
-            : this()
-        {
-            var episodeGroups = patientEpisodes.Episodes.GroupBy(x => x.EpisodeType.DisplayName);
-
-            var yAxis = new TheographAxisData();
-
-            var plotBands = new List<TheographPlotBandData>();
-
-            const int height = 100;
-            yAxis.TickInterval = height;
-            yAxis.Max = episodeGroups.Count() * height;
-            yAxis.MinRange = episodeGroups.Count() * height;
-
-            for (int i = 0; i < episodeGroups.Count(); i++)
-            {
-                var episodeGroup = episodeGroups.ElementAt(i);
-
-                var series = new TheographChartSeries
-                {
-                    Name = episodeGroup.Key
-                };
-
-                var plotBand = new TheographPlotBandData
-                {
-                    From = i * height,
-                    To = (i + 1) * height,
-                    Color = (i % 2 == 0) ? "rgba(68, 170, 213, 0.1)" : null
-                };
-
-                plotBand.Label.Text = episodeGroup.Key;
-
-                var orderedEpsiodes = episodeGroup.OrderBy(x => x.StartTime);
-
-                foreach (var orderedEpsiode in orderedEpsiodes)
-                {
-                    int yPoint = ((i + 1) * height) - (height / 2);
-                    string tooltipTitle = string.Format("{0}{1}",
-                        episodeGroup.Key,
-                        orderedEpsiode.TreatmentSite != null ? " at " + orderedEpsiode.TreatmentSite.Name : string.Empty);
-                    StringBuilder sbToolTipText = new StringBuilder();
-                    sbToolTipText.AppendFormat(
-                        "Start: {0:ddd MMMM} <sup>{1}</sup> {0:yyyy HH:mm}",
-                        orderedEpsiode.StartTime,
-                        orderedEpsiode.StartTime.GetDayOrdinal());
-
-                    if (orderedEpsiode.EndTime.HasValue)
-                    {
-                        sbToolTipText.AppendFormat(
-                            "<br/>End: {0:ddd MMMM} <sup>{1}</sup> {0:yyyy HH:mm}", 
-                            orderedEpsiode.EndTime.Value,
-                            orderedEpsiode.EndTime.Value.GetDayOrdinal());
-                    }
-                    
-                    // start point
-                    var dataPoint = new TheographChartSeriesData
-                    {
-                        // * 1000 to conform with the Highcharts way of handling dates
-                        EpisodeStartTimestamp = orderedEpsiode.StartTime.ToUnixTime() * 1000,
-                        Y = yPoint
-                    };
-
-                    dataPoint.AddData("tooltipTitle", tooltipTitle);
-                    dataPoint.AddData("tooltipText", sbToolTipText.ToString());
-
-                    series.Data.Add(dataPoint);
-
-                    // end point
-                    if (orderedEpsiode.EndTime.HasValue)
-                    {
-                        dataPoint = new TheographChartSeriesData
-                        {
-                            // * 1000 to conform with the Highcharts way of handling dates
-                            EpisodeStartTimestamp = orderedEpsiode.EndTime.Value.ToUnixTime() * 1000,
-                            Y = yPoint
-                        };
-
-                        dataPoint.AddData("tooltipTitle", tooltipTitle);
-                        dataPoint.AddData("tooltipText", sbToolTipText.ToString());
-
-                        series.Data.Add(dataPoint);
-                    }
-
-
-                    // add null-value point to disconnect separate epsiodes
-                    var dataNullPoint = new TheographChartSeriesData
-                    {
-                        EpisodeStartTimestamp = dataPoint.EpisodeStartTimestamp + 1,
-                        Y = null
-                    };
-
-                    series.Data.Add(dataNullPoint);
-                }
-
-                this.Series.Add(series);
-                plotBands.Add(plotBand);
-            }
-
-            yAxis.PlotBands = plotBands;
-            this.Axes.Add("y", yAxis);
         }
 
         [JsonProperty(PropertyName = "series")]
@@ -207,24 +99,24 @@
     {
         public TheographAxisData()
         {
-            this.PlotBands = new List<TheographPlotBandData>();
+            this.PlotBands = null;
             this.Min = 0;
             this.Type = "category";
-            this.Labels = new TheographAxisLabelData();
-            this.Title = new TheographTitleData();
+            this.Labels = null;
+            this.Title = null;
         }
 
-        [JsonProperty(PropertyName = "plotBands")]
+        [JsonProperty(PropertyName = "plotBands", NullValueHandling = NullValueHandling.Ignore)]
         public IList<TheographPlotBandData> PlotBands { get; set; }
 
         [JsonProperty(PropertyName = "min")]
-        public int Min { get; set; }
+        public long Min { get; set; }
 
         [JsonProperty(PropertyName = "max")]
-        public int Max { get; set; }
+        public long Max { get; set; }
 
-        [JsonProperty(PropertyName = "tickInterval")]
-        public int TickInterval { get; set; }
+        [JsonProperty(PropertyName = "tickInterval", NullValueHandling = NullValueHandling.Ignore)]
+        public int? TickInterval { get; set; }
 
         [JsonProperty(PropertyName = "minRange")]
         public int MinRange { get; set; }
@@ -232,11 +124,75 @@
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 
-        [JsonProperty(PropertyName = "labels")]
+        [JsonProperty(PropertyName = "labels", NullValueHandling = NullValueHandling.Ignore)]
         public TheographAxisLabelData Labels { get; set; }
 
-        [JsonProperty(PropertyName = "title")]
+        [JsonProperty(PropertyName = "dateTimeLabelFormats", NullValueHandling = NullValueHandling.Ignore)]
+        public TheographDataTimeLabelFormatData DateTimeLabelFormats { get; set; }
+
+        [JsonProperty(PropertyName = "title", NullValueHandling = NullValueHandling.Ignore)]
         public TheographTitleData Title { get; set; }
+
+        public void AddPlotBand(TheographPlotBandData plotBand)
+        {
+            if (this.PlotBands == null)
+            {
+                this.PlotBands = new List<TheographPlotBandData>();
+            }
+
+            this.PlotBands.Add(plotBand);
+        }
+    }
+
+    public class TheographDataTimeLabelFormatData
+    {
+        /// <summary>
+        /// '%H:%M:%S.%L'
+        /// </summary>
+        [JsonProperty(PropertyName = "millisecond", NullValueHandling = NullValueHandling.Ignore)]
+        public string Millisecond { get; set; }
+
+        /// <summary>
+        /// '%H:%M:%S'
+        /// </summary>
+        [JsonProperty(PropertyName = "second", NullValueHandling = NullValueHandling.Ignore)]
+        public string Second { get; set; }
+
+        /// <summary>
+        /// '%H:%M'
+        /// </summary>
+        [JsonProperty(PropertyName = "minute", NullValueHandling = NullValueHandling.Ignore)]
+        public string Minute { get; set; }
+
+        /// <summary>
+        /// '%H:%M'
+        /// </summary>
+        [JsonProperty(PropertyName = "hour", NullValueHandling = NullValueHandling.Ignore)]
+        public string Hour { get; set; }
+
+        /// <summary>
+        /// '%e. %b'
+        /// </summary>
+        [JsonProperty(PropertyName = "day", NullValueHandling = NullValueHandling.Ignore)]
+        public string Day { get; set; }
+
+        /// <summary>
+        /// '%e. %b'
+        /// </summary>
+        [JsonProperty(PropertyName = "week", NullValueHandling = NullValueHandling.Ignore)]
+        public string Week { get; set; }
+
+        /// <summary>
+        /// '%b \'%y'
+        /// </summary>
+        [JsonProperty(PropertyName = "month", NullValueHandling = NullValueHandling.Ignore)]
+        public string Month { get; set; }
+
+        /// <summary>
+        /// '%Y'
+        /// </summary>
+        [JsonProperty(PropertyName = "year", NullValueHandling = NullValueHandling.Ignore)]
+        public string Year { get; set; }
     }
 
     public class TheographAxisLabelData
@@ -278,10 +234,10 @@
         }
 
         [JsonProperty(PropertyName = "from")]
-        public int From { get; set; }
+        public long From { get; set; }
 
         [JsonProperty(PropertyName = "to")]
-        public int To { get; set; }
+        public long To { get; set; }
 
         [JsonProperty(PropertyName = "color", NullValueHandling = NullValueHandling.Ignore)]
         public string Color { get; set; }

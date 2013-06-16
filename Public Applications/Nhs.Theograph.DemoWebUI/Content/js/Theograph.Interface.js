@@ -10,7 +10,46 @@ var Theograph = Theograph || {
 Theograph.Interface = (function () {
     "use strict";
 
+    var _renderChart = function (container, chartOptionsProxy) {
+        if (chartOptionsProxy === null) {
+            return;
+        }
+
+        var categories = null, series = null, colors = null, axes = null, tooltip = null, dataLabels = null, legend = null, hdSummary = null, ftSummary = null, events = null, chartData, template, nav = { count: 0, startAt: 0, maxItems: 10 }, customData = null;
+        if (chartOptionsProxy.hasOwnProperty('categories') && Array.isArray(chartOptionsProxy.categories)) {
+            categories = chartOptionsProxy.categories;
+        }
+
+        if (chartOptionsProxy.hasOwnProperty('series') && Array.isArray(chartOptionsProxy.series)) {
+            series = chartOptionsProxy.series;
+        }
+
+        if (chartOptionsProxy.hasOwnProperty('colors') && Array.isArray(chartOptionsProxy.colors)) {
+            colors = chartOptionsProxy.colors;
+        }
+
+        if (chartOptionsProxy.hasOwnProperty('events') && Array.isArray(chartOptionsProxy.events)) {
+            events = chartOptionsProxy.events;
+        }
+
+        axes = typeof chartOptionsProxy.axes === 'object' ? chartOptionsProxy.axes : null;
+        tooltip = typeof chartOptionsProxy.tooltip === 'string' ? chartOptionsProxy.tooltip : null;
+        dataLabels = typeof chartOptionsProxy.dataLabels === 'object' ? chartOptionsProxy.dataLabels : null;
+        legend = typeof chartOptionsProxy.legend === 'object' ? chartOptionsProxy.legend : null;
+        hdSummary = typeof chartOptionsProxy.hdSummary === 'string' ? chartOptionsProxy.hdSummary : null;
+        ftSummary = typeof chartOptionsProxy.ftSummary === 'string' ? chartOptionsProxy.ftSummary : null;
+        customData = typeof chartOptionsProxy.customData === 'object' ? chartOptionsProxy.customData : null;
+
+        chartData = new Theograph.ChartData('Theograph', categories, series, colors, axes, tooltip, dataLabels, legend, hdSummary, ftSummary, customData, events);
+
+        new Theograph.Chart(container, chartData);
+    };
+
     return {
+        renderChart: function (container, data) {
+            _renderChart(container, data);
+        },
+
         hideGraphStatus: function (container) {
             var jqChartLoader = container.getChartLoader();
             if (jqChartLoader.length > 0) {
@@ -32,41 +71,8 @@ Theograph.Interface = (function () {
             jqChartLoader.append('<div class="graphLoader"><img src="/content/images/radar/' + icon + '" /><p>' + text + '</p></div>');
         },
         drawChart: function dC(callback) {
-            $.get('/Theograph/getData?nhsNumber=' + getParameterByName("nhsNumber"), null, function dCrA(chartOptionsProxy) {
-                if (chartOptionsProxy === null) {
-                    return;
-                }
-
-                console.log(chartOptionsProxy);
-
-                var categories = null, series = null, colors = null, axes = null, tooltip = null, dataLabels = null, legend = null, hdSummary = null, ftSummary = null, events = null, chartData, template, nav = { count: 0, startAt: 0, maxItems: 10 }, customData = null;
-                if (chartOptionsProxy.hasOwnProperty('categories') && Array.isArray(chartOptionsProxy.categories)) {
-                    categories = chartOptionsProxy.categories;
-                }
-
-                if (chartOptionsProxy.hasOwnProperty('series') && Array.isArray(chartOptionsProxy.series)) {
-                    series = chartOptionsProxy.series;
-                }
-
-                if (chartOptionsProxy.hasOwnProperty('colors') && Array.isArray(chartOptionsProxy.colors)) {
-                    colors = chartOptionsProxy.colors;
-                }
-
-                if (chartOptionsProxy.hasOwnProperty('events') && Array.isArray(chartOptionsProxy.events)) {
-                    events = chartOptionsProxy.events;
-                }
-
-                axes = typeof chartOptionsProxy.axes === 'object' ? chartOptionsProxy.axes : null;
-                tooltip = typeof chartOptionsProxy.tooltip === 'string' ? chartOptionsProxy.tooltip : null;
-                dataLabels = typeof chartOptionsProxy.dataLabels === 'object' ? chartOptionsProxy.dataLabels : null;
-                legend = typeof chartOptionsProxy.legend === 'object' ? chartOptionsProxy.legend : null;
-                hdSummary = typeof chartOptionsProxy.hdSummary === 'string' ? chartOptionsProxy.hdSummary : null;
-                ftSummary = typeof chartOptionsProxy.ftSummary === 'string' ? chartOptionsProxy.ftSummary : null;
-                customData = typeof chartOptionsProxy.customData === 'object' ? chartOptionsProxy.customData : null;
-
-                chartData = new Theograph.ChartData('Theograph', categories, series, colors, axes, tooltip, dataLabels, legend, hdSummary, ftSummary, customData, events);
-
-                new Theograph.Chart('theographChart', chartData);
+            $.get('/Theograph/getData?nhsNumber=' + getParameterByName("nhsNumber"), null, function (data) {
+                _renderChart('theographChart', data);
             });
         },
         loadChart: function (callback) {

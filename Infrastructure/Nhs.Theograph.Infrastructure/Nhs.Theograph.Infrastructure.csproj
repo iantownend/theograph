@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IoC\Windsor.cs" />
-    <Compile Include="PatientEpisodesTestDao.cs" />
+    <Compile Include="TestTheographDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

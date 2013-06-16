@@ -7,10 +7,15 @@
     using Nhs.Theograph.Core.Episode;
     using Nhs.Theograph.Core;
 
-    public class TreatmentEvent : IEpisodeEvent
+    public class ObservationEvent : IEpisodeEvent, IResultsEvent
     {
-        private static CodedType eventType = new CodedType("TREAT", "Treatment");
-        
+        private static CodedType eventType = new CodedType("OBS", "Observation");
+
+        public ObservationEvent()
+        {
+            this.Results = new List<IResult>();
+        }
+
         /// <summary>
         /// Gets or sets the unique identifier of the episode this event is associated with.
         /// </summary>
@@ -20,6 +25,8 @@
         /// Gets or sets the unique identifier of the event.
         /// </summary>
         public EventId EventId { get; set; }
+
+        public CodedType EventType { get { return eventType; } }
 
         /// <summary>
         /// Gets or sets the start date and time of this event.
@@ -32,12 +39,15 @@
         /// </summary>
         public DateTime? EndTime { get; set; }
 
-        public CodedType EventType { get { return eventType; } }
-
         public CodedType Code { get; set; }
 
         public Staff Performer { get; set; }
 
         public string Text { get; set; }
+
+        // following properties are optional
+        public IList<IResult> Results { get; set; }
+
+        public string ResultText { get; set; }
     }
 }

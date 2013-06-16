@@ -174,7 +174,8 @@
     <Compile Include="Infrastructure\ServiceInstaller.cs" />
     <Compile Include="Infrastructure\WebUIContainerFactory.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
-    <Compile Include="Models\TheographChartViewModel.cs" />
+    <Compile Include="Models\TheographHighchartAdaptors.cs" />
+    <Compile Include="Models\TheographHighchartsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

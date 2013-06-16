@@ -16,13 +16,13 @@ namespace Nhs.Theograph.Core
     /// Encapsulates a <see cref="Patient"/> and their list of <see cref="EpisodeDetailsBase"/> to
     /// provide a breakdown of their past encounters.
     /// </summary>
-    public class PatientEpsiodes
+    public class PatientEpisodes
     {
         /// <summary>
-        /// Initialises a new instance of the <see cref="PatientEpsiodes"/> class.
+        /// Initialises a new instance of the <see cref="PatientEpisodes"/> class.
         /// </summary>
         /// <param name="patient">The patient.</param>
-        public PatientEpsiodes(Patient patient)
+        public PatientEpisodes(Patient patient)
         {
             this.Patient = patient;
             this.Episodes = new List<EpisodeDetailsBase>();

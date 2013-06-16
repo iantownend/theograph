@@ -1,6 +1,6 @@
 ﻿@using Nhs.Theograph.Core.Interfaces;
 @using Nhs.Theograph.Core;
-@model PatientEpsiodes
+@model PatientEpisodes
 @{
   ViewBag.Title = "Patient Details: " + Model.Patient.PatientDetails.GetFullName() + " (" + Model.Patient.NhsNumber.Value + ")";
 }
@@ -44,6 +44,10 @@
     }
   </tbody>
 </table>
+<div class="theograph-graph clearfix">
+  <div id="theographSubChart" style="margin: 0 auto; border: 1px solid #ddffff; width: 50%; height: 180px;">
+  </div>
+</div>
 <script type="text/javascript">
   $(document).ready(function () {
     "use strict";

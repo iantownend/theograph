@@ -286,7 +286,8 @@ Theograph.Chart = function theoChart(chartContainer, chartOptions) {
     }
     
     var i = 0, v = 0, xaxis = null, yaxis = null, yAxisLabelFormatter = null,
-        showXaxisLabels = true, //// chartOptions.getCategories() !== null,
+        showXaxisLabels = true,
+        //// chartOptions.getCategories() !== null,
         //// axes = chartOptions.getAxes(),
         tooltipFormatter = typeof chartOptions.getTooltip() === 'string'
             ? function () { return Theograph.Utils.formatTooltip(this, chartOptions.getTooltip()); }
@@ -301,16 +302,33 @@ Theograph.Chart = function theoChart(chartContainer, chartOptions) {
         title: {
             text: null
         },
-        xAxis: {
-            type: 'datetime',
-            min: Date.UTC(2012, 5, 5),
-            max: Date.UTC(2013, 5, 5),
-            minRange: 1000 * 3600 * 24, // max zoom of 1 hr,
-            dateTimeLabelFormats: {
-                month: '%b %y',
-                day: '%e %b'
+        plotOptions: {
+            line: {
+                marker: {
+                    enabled: true,
+                    symbol: null,
+                    radius: 4
+                }
+            },
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function() {
+                            if (this.data.episodeId === null)
+                            {
+                                return false;
+                            }
+                        
+                            $.get('/Theograph/getEpisodeData?nhsNumber=' + getParameterByName("nhsNumber") + "&episodeId=" + this.data.episodeId, null, function(data) {
+                                Theograph.Interface.renderChart('theographSubChart', data);
+                            });
+                        }
+                    }
+                }
             }
-        },
+        },  
+        xAxis: chartOptions.getAxisByName("x"),
         yAxis: chartOptions.getAxisByName("y"),
         tooltip: { 
             formatter: function() {

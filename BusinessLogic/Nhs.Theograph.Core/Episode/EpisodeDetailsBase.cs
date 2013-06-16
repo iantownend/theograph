@@ -19,6 +19,11 @@
         }
 
         /// <summary>
+        /// Gets or sets the unique identifier of the patient linked to this episode.
+        /// </summary>
+        public NhsNumber PatientId { get; set; }
+
+        /// <summary>
         /// Gets or sets the unique identifier of this episode.
         /// </summary>
         public EpisodeId EpisodeId { get; set; }

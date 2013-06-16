@@ -19,6 +19,18 @@
         }
 
         /// <summary>
+        /// Converts this <see cref="DateTime"/> to a Highcharts timestamp time. This is equivalent
+        /// to a Unix timestamp multiplied by 1000 so as to represent millisecond values.
+        /// </summary>
+        /// <param name="date">The date.</param>
+        /// <returns>The Highcharts epoch timestamp.</returns>
+        public static long ToHighchartsTime(this DateTime date)
+        {
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return Convert.ToInt64((date - epoch).TotalSeconds) * 1000;
+        }
+
+        /// <summary>
         /// Gets the day ordinal for this <see cref="DateTime"/>.
         /// </summary>
         /// <param name="date">The date.</param>

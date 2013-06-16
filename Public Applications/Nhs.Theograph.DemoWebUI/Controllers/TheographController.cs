@@ -40,7 +40,36 @@
 
             var result = new JsonNetResult
             {
-                Data = new TheographChartViewModel(this.patientEpisodeService.GetPatientEpisodesByNhsNumber(value)),
+                Data = TheographHighchartAdaptors.GetPatientEpsiodesChart(
+                    this.patientEpisodeService.GetPatientEpisodesByNhsNumber(value)),
+#if DEBUG
+                Formatting = Formatting.Indented
+#else
+                Formatting = Formatting.None
+#endif
+            };
+
+            return result;
+        }
+
+        [HttpGet]
+        [ActionName("getEpisodeData")]
+        public ActionResult GetEpisodeData(string nhsNumber, string episodeId)
+        {
+            NhsNumber value = this.ValidateNhsNumber(nhsNumber);
+
+            Guid validatorGuid;
+
+            if (!Guid.TryParse(episodeId, out validatorGuid))
+            {
+                return new JsonNetResult();
+            }
+
+            var data = this.patientEpisodeService.GetPatientEpisodeEvents(value, new Core.Episode.EpisodeId { Value = episodeId });
+
+            var result = new JsonNetResult
+            {
+                Data = TheographHighchartAdaptors.GetPatientEpsiodeEventsChart(data),
 #if DEBUG
                 Formatting = Formatting.Indented
 #else

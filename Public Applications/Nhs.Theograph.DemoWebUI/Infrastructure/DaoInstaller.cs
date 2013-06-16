@@ -15,9 +15,9 @@
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register((
-                Component.For<IPatientEpisodeDao>()
-                .ImplementedBy<PatientEpisodesTestDao>())
-                .LifestylePerWebRequest());
+                Component.For<ITheographDao>()
+                .ImplementedBy<TestTheographDao>())
+                .LifestyleSingleton());
         }
     }
 }

@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Site.cs" />
     <Compile Include="Episode\EpisodeDetailsBase.cs" />
-    <Compile Include="Episode\EpisodeType.cs" />
     <Compile Include="Episode\Staff.cs" />
     <Compile Include="CodedType.cs" />
     <Compile Include="Episode\IEpisode.cs" />
     <Compile Include="Episode\IEpisodeEvent.cs" />
     <Compile Include="Episode\EpisodeId.cs" />
     <Compile Include="Interfaces\IPersonName.cs" />
-    <Compile Include="OrganisationType.cs" />
+    <Compile Include="Organisation.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="NhsNumber.cs" />

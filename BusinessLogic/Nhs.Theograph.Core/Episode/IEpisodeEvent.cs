@@ -11,6 +11,7 @@
     public interface IEpisodeEvent
     {
         DateTime EventTime { get; set; }
-        CodedType EventType { get;}
+
+        CodedType EventType { get; }
     }
 }

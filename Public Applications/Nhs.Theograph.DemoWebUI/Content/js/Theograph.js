@@ -142,7 +142,7 @@ Theograph.ChartData = function theoData(name, categories, seriesData, seriesColo
     categories = isDef(categories) ? categories : null;
     seriesData = isDef(seriesData) ? seriesData : {};
     seriesColors = isDef(seriesColors) && seriesColors !== null ? seriesColors : [];
-    axes = isDef(axes) && axes !== null ? axes : [];
+    axes = isDef(axes) && axes !== null ? axes : {};
     tooltip = isDef(tooltip) && tooltip !== null ? tooltip : [];
     dataLabels = isDef(dataLabels) && dataLabels !== null ? dataLabels : null;
     legend = isDef(legend) && legend !== null ? legend : null;
@@ -174,6 +174,13 @@ Theograph.ChartData = function theoData(name, categories, seriesData, seriesColo
             seriesData = newSeriesData;
         },
 
+        getPlotBands: function () {
+            return plotBands;
+        },
+        setPlotBands: function (newPlotBands) {
+            plotBands = newPlotBands;
+        },
+
         getSeriesColors: function () {
             return seriesColors;
         },
@@ -186,6 +193,10 @@ Theograph.ChartData = function theoData(name, categories, seriesData, seriesColo
         },
         setAxes: function (newAxes) {
             axes = newAxes;
+        },
+
+        getAxisByName: function (axisName) {
+            return axes[axisName];
         },
 
         getTooltip: function () {
@@ -276,7 +287,7 @@ Theograph.Chart = function theoChart(chartContainer, chartOptions) {
     
     var i = 0, v = 0, xaxis = null, yaxis = null, yAxisLabelFormatter = null,
         showXaxisLabels = true, //// chartOptions.getCategories() !== null,
-        axes = chartOptions.getAxes(),
+        //// axes = chartOptions.getAxes(),
         tooltipFormatter = typeof chartOptions.getTooltip() === 'string'
             ? function () { return Theograph.Utils.formatTooltip(this, chartOptions.getTooltip()); }
             : function () { return '<b>' + (this.point.name || this.x) + '</b><br/>' + this.y; };
@@ -300,49 +311,10 @@ Theograph.Chart = function theoChart(chartContainer, chartOptions) {
                 day: '%e %b'
             }
         },
-        yAxis: {
-            min: 0,
-            plotBands: [{
-                from: 0,
-                to: 100,
-                color: 'rgba(68, 170, 213, 0.1)',
-                label: {
-                    text: 'A & E',
-                    style: {
-                        color: '#606060'
-                    }
-                }
-            }, {
-                from: 100,
-                to: 200,
-                label: {
-                    text: 'Inpatient',
-                    style: {
-                        color: '#606060'
-                    }
-                }
-            }, {
-                from: 200,
-                to: 300,
-                color: 'rgba(68, 170, 213, 0.1)',
-                label: {
-                    text: 'Outpatient',
-                    style: {
-                        color: '#606060'
-                    }
-                }
-            }],
-            tickInterval: 100,
-            type: 'category',
-            max: 300,
-            minRange: 300,
-            labels: {
-                enabled: false
-            }
-        },
+        yAxis: chartOptions.getAxisByName("y"),
         tooltip: { 
             formatter: function() {
-                return '<b>' + new Date(this.point.x).toString() + '</b><br/>' + this.point.series.name + (this.point.org !== undefined ? ' at ' + this.point.org : '');
+                return '<b>' + this.point.data.tooltipTitle + '</b><br/>' + this.point.data.tooltipText;
             } 
         },
         series: chartOptions.getSeriesData()

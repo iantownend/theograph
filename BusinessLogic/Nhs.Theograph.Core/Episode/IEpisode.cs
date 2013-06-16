@@ -32,6 +32,19 @@ namespace Nhs.Theograph.Core.Episode
         /// </summary>
         DateTime? EndTime { get; set; }
 
-        EpisodeType EpisodeType { get; set; }
+        /// <summary>
+        /// Gets or sets <see cref="CodedType"/> representing the type of this episode.
+        /// </summary>
+        CodedType EpisodeType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the organisation who has submitted the information for this episode.
+        /// </summary>
+        Organisation SubmittingOrganisation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the site at which the treatment for this episode was caarried out at.
+        /// </summary>
+        Site TreatmentSite { get; set; }
     }
 }

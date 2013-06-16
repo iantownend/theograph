@@ -10,12 +10,15 @@ using Nhs.Theograph.Care.ClinicalEvents;
 
     public class GPAppointmentEpisode : EpisodeDetailsBase
     {
-        public override EpisodeType EpisodeType
+        private CodedType episodeType = new CodedType("0002", "GP Appointment");
+
+        public override CodedType EpisodeType
         {
-            get { return new EpisodeType { Value = "GP Appointment" }; }
+            get { return episodeType; }
             set { throw new NotImplementedException(); }
         }
-        public OrganisationType Organisation { get; set; }
+
+        public Organisation Organisation { get; set; }
         public IList<DiagnosisEvent> Diagnosis { get; set; }
         public IList<TreatmentEvent> Treatment {get;set;}
         public IList<InvestigationEvent> Investigation { get; set; }

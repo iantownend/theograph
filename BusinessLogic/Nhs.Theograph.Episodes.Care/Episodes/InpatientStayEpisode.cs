@@ -10,13 +10,15 @@
 
     public class InpatientStayEpisode : EpisodeDetailsBase
     {
-        public override EpisodeType EpisodeType
+        private CodedType episodeType = new CodedType("0003", "Inpatient Stay");
+
+        public override CodedType EpisodeType
         {
-            get { return new EpisodeType { Value = "Inpatient Stay" }; }
+            get { return episodeType; }
             set { throw new NotImplementedException(); }
         }
 
-        public OrganisationType Organisation { get; set; }
+        public Organisation Organisation { get; set; }
         public IList<DiagnosisEvent> Diagnosis { get; set; }
         public IList<TreatmentEvent> Treatment { get; set; }
         public IList<InvestigationEvent> Investigation { get; set; }

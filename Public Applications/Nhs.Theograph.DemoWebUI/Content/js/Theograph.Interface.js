@@ -37,6 +37,8 @@ Theograph.Interface = (function () {
                     return;
                 }
 
+                console.log(chartOptionsProxy);
+
                 var categories = null, series = null, colors = null, axes = null, tooltip = null, dataLabels = null, legend = null, hdSummary = null, ftSummary = null, events = null, chartData, template, nav = { count: 0, startAt: 0, maxItems: 10 }, customData = null;
                 if (chartOptionsProxy.hasOwnProperty('categories') && Array.isArray(chartOptionsProxy.categories)) {
                     categories = chartOptionsProxy.categories;
@@ -50,14 +52,11 @@ Theograph.Interface = (function () {
                     colors = chartOptionsProxy.colors;
                 }
 
-                if (chartOptionsProxy.hasOwnProperty('axes') && Array.isArray(chartOptionsProxy.axes)) {
-                    axes = chartOptionsProxy.axes;
-                }
-
                 if (chartOptionsProxy.hasOwnProperty('events') && Array.isArray(chartOptionsProxy.events)) {
                     events = chartOptionsProxy.events;
                 }
 
+                axes = typeof chartOptionsProxy.axes === 'object' ? chartOptionsProxy.axes : null;
                 tooltip = typeof chartOptionsProxy.tooltip === 'string' ? chartOptionsProxy.tooltip : null;
                 dataLabels = typeof chartOptionsProxy.dataLabels === 'object' ? chartOptionsProxy.dataLabels : null;
                 legend = typeof chartOptionsProxy.legend === 'object' ? chartOptionsProxy.legend : null;

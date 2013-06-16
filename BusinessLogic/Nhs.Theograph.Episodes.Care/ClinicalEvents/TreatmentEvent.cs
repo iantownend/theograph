@@ -9,7 +9,7 @@ namespace Nhs.Theograph.Care.ClinicalEvents
 {
     public class TreatmentEvent : IEpisodeEvent
     {
-        private static CodedType eventType = new CodedType { Code = "TREAT", DisplayName = "Treatment" };
+        private static CodedType eventType = new CodedType("TREAT", "Treatment");
         public DateTime EventTime { get; set; }
         public CodedType EventType { get { return eventType; } }
         public CodedType Treatment { get; set; }

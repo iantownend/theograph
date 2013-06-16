@@ -9,12 +9,12 @@ namespace Nhs.Theograph.Care.ClinicalEvents
 {
     public class DiagnosisEvent : IEpisodeEvent
     {
-        private static CodedType eventType = new CodedType {Code = "DIAG", DisplayName="Diagnosis"};
+        private static CodedType eventType = new CodedType("DIAG", "Diagnosis");
         public DateTime EventTime { get; set; }
-        public CodedType EventType { get { return eventType;}}
+        public CodedType EventType { get { return eventType; } }
         public CodedType Diagnosis { get; set; }
         public Staff DisgnosingPerson { get; set; }
         public string DiagnosisText { get; set; }
-        
+
     }
 }

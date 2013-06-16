@@ -22,12 +22,7 @@
         /// Gets or sets the unique identifier of this episode.
         /// </summary>
         public EpisodeId EpisodeId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the unique identifier of the organisation.
-        /// </summary>
-        public OrganisationType OrganisationId { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the start date and time of this episode.
         /// </summary>
@@ -42,12 +37,17 @@
         /// <summary>
         /// Gets or sets the type of the episode.
         /// </summary>
-        public abstract EpisodeType EpisodeType { get; set; }
+        public abstract CodedType EpisodeType { get; set; }
 
         /// <summary>
-        /// Gets or sets the site code of where the treatment for this episode is taking place.
+        /// Gets or sets the organisation who has submitted the information for this episode.
         /// </summary>
-        public string TreatmentSiteCode { get; set; }
+        public Organisation SubmittingOrganisation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the site at which the treatment for this episode was caarried out at.
+        /// </summary>
+        public Site TreatmentSite { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of events within the episode.
